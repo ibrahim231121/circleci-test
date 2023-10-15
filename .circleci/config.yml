@@ -6,14 +6,11 @@ jobs:
     docker:
       - image: arvindr226/alpine-ssh
     steps:
-      - checkout     
-      - add_ssh_key:
-          fingerprints:
-            - "SHA256:xpy+uKwbRxjQMwxJ7NA8W/g3pG30ozjCjcJKuK82thU"
+      - checkout
       - run: ssh circleci@157.230.188.193 "./deploy.sh"
 
 # Orchestrate our job run sequence
-workflowsi:
+workflows:
   version: 2
   build-project:
     jobs:
